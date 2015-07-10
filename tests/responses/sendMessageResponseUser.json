@@ -1,0 +1,18 @@
+{
+   "ok":true,
+   "result":{
+      "message_id":263,
+      "from":{
+         "id":1234567890,
+         "first_name":"Test Bot",
+         "username":"testbot"
+      },
+      "chat":{
+         "id":1234567890,
+         "first_name":"Test Bot",
+         "username":"testbot"
+      },
+      "date":1436182201,
+      "text":"This is a test message"
+   }
+}

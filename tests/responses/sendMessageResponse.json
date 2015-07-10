@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "result": {
+    "message_id": 275,
+    "from": {
+      "id": 119421495,
+      "first_name": "Syntax Bot",
+      "username": "syntaxbot"
+    },
+    "chat": {
+      "id": 123456,
+      "title": "Chat Room"
+    },
+    "date": 1436512227,
+    "text": "This is a test message"
+  }
+}

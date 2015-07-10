@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "result": {
+    "message_id": 278,
+    "from": {
+      "id": 119421495,
+      "first_name": "Syntax Bot",
+      "username": "syntaxbot"
+    },
+    "chat": {
+      "id": 123456,
+      "title": "Chat Room"
+    },
+    "date": 1436512499,
+    "photo": [
+      {
+        "file_id": "AgADBAAD4acxGzc6Hgfv9b8G1ty9tj8IUTAABAoJMrYB-Vm3F0gBAAEC",
+        "file_size": 1415,
+        "width": 90,
+        "height": 60
+      },
+      {
+        "file_id": "AgADBAAD4acxGzc6Hgfv9b8G1ty9tj8IUTAABMB1F4lWMwnrFkgBAAEC",
+        "file_size": 20261,
+        "width": 320,
+        "height": 214
+      },
+      {
+        "file_id": "AgADBAAD4acxGzc6Hgfv9b8G1ty9tj8IUTAABB1hFofCwQRgFUgBAAEC",
+        "file_size": 97783,
+        "width": 800,
+        "height": 534
+      },
+      {
+        "file_id": "AgADBAAD4acxGzc6Hgfv9b8G1ty9tj8IUTAABKqWHb5cG8i1FEgBAAEC",
+        "file_size": 68750,
+        "width": 806,
+        "height": 538
+      },
+      {
+        "file_id": "AgAD_v___-GnMRs3Oh4H7_W_BtbcvbYAFAI",
+        "file_size": 68750,
+        "width": 0,
+        "height": 0
+      }
+    ]
+  }
+}

@@ -10,8 +10,6 @@ trait Fillable {
 
 		foreach($data as $key => $value){
 			if(in_array($key, $this->fillable)){
-				// if($convertSnakeToCamel) $key = $this->camelize($key);
-
 				$this->{$key} = $value;
 			}
 		}
@@ -37,16 +35,13 @@ trait Fillable {
 						foreach($objects as $object){
 							$cls = new $className($object);
 							array_push($this->{$property}, $cls);
-
 						}
 					}
 				}else{
 					if(class_exists($className)){
-						$this->{$property} = new $className($this->{$property});
+						$this->{$property} = new $className( $this->{$property} );
 					}
 				}
-
-				
 			}
 		}
 	}

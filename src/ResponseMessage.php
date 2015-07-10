@@ -21,6 +21,8 @@ use tomvo\TelegramBot\Containers\GroupChat;
 use tomvo\TelegramBot\Containers\PhotoSize;
 use tomvo\TelegramBot\Containers\User;
 
+use tomvo\TelegramBot\Exceptions\ParseException;
+
 class ResponseMessage {
     use Fillable;
 
@@ -32,7 +34,9 @@ class ResponseMessage {
         'forward_from',
         'forward_date',
         'reply_to_message',
-        'text',
+        
+        'text', 'message',
+
         'audio',
         'document',
         'photo',
@@ -79,6 +83,14 @@ class ResponseMessage {
 
         $this->api = $api;
 
+        //The official property for a message is 'text', however the library uses the Message media type and 
+        //I believe this is also a better way to describe this. The Telegram API returns the text property and needs to be mapped to 
+        //message and as a tomvo\TelegramBot\Media\Message class. Hence the the following switching around.
+        if(isset($data['text'])) {
+            $data['message'] = ['text' => $data['text']];
+            unset($data['text']);
+        }
+
         $this->fill($data);
         $this->parse();
 	}	
@@ -90,17 +102,15 @@ class ResponseMessage {
         
         //Determine who sent this message or where the message was sent to
         //The chat property can either be a User or a GroupChat type, determine this here and set the property accordingly
-        if(isset($this->chat->firstname)){
+        if(isset($this->chat['first_name'])){
             //If the firstname is set then the chat is a user
             $this->map['chat'] = 'tomvo\TelegramBot\Containers\User';
         }else{
             $this->map['chat'] = 'tomvo\TelegramBot\Containers\GroupChat';
         }
 
-        $this->map();
-
         //Start to determine the media type that is incoming, store the media in the media property so it can be retrieved later on
-        if(isset($this->text)){
+        if(isset($this->message)){
             $this->mediaType = 'message';
         }elseif(isset($this->audio)){
             $this->mediaType = 'video';
@@ -118,10 +128,14 @@ class ResponseMessage {
         }elseif(isset($this->location)){
             $this->mediaType = 'location';
         }
+
+        $this->map();
     }
 
     public function getMedia()
     {
+        if(!isset($this->{$this->mediaType})) throw new ParseException("Media property " . $this->mediaType . ' not set');
+
         return $this->{$this->mediaType};
     }
 
@@ -140,7 +154,7 @@ class ResponseMessage {
      */
     public function respond(Media $media)
     {
-        return $this->api->send($this->chat->id, $media);
+         $this->api->send($this->chat->id, $media);
     }
 
     /**

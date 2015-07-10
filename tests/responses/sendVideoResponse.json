@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "result": {
+    "message_id": 281,
+    "from": {
+      "id": 119421495,
+      "first_name": "Syntax Bot",
+      "username": "syntaxbot"
+    },
+    "chat": {
+      "id": 123456,
+      "title": "Chat Room"
+    },
+    "date": 1436512559,
+    "video": {
+      "duration": 0,
+      "mime_type": "video\\/mp4",
+      "caption": "",
+      "width": 0,
+      "height": 0,
+      "thumb": {},
+      "file_id": "BAADBAADIgADNzoeB3YhVJL8FqSuAg",
+      "file_size": 383631
+    }
+  }
+}
